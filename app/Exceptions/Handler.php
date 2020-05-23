@@ -57,6 +57,7 @@ class Handler extends ExceptionHandler
             $message = Response::$statusTexts[$code];
             return $this->errorResponse($message,$code);
         }
+
         if ($exception instanceof ModelNotFoundException) {
             $model=strtolower(class_basename($exception->getModel()));
             return $this->errorResponse("{$model} not found",Response::HTTP_NOT_FOUND);
