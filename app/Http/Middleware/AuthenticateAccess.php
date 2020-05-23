@@ -16,6 +16,9 @@ class AuthenticateAccess
      */
     public function handle($request, Closure $next)
     {
+        // If there is an Authorization token and match the valid Secrets allow the request Else Abort
+        // We do this so there is no directly access from Projects Routes without validation
+        // While the Api gateway always attach an authorization code on every request based on the service
         $validSecrets = explode(",",env('ACCEPTED_SECRETS'));
         if (in_array($request->header('Authorization'),$validSecrets)){
 
