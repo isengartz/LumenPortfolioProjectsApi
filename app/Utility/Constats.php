@@ -5,8 +5,11 @@
  * Date: 23/5/2020
  * Time: 7:49 μμ
  */
-namespace Utility\Constants;
+namespace App\Utility;
 
-return [
-    "ONE_VALUE_MUST_CHANGE" => "At least one value must change"
-];
+
+class Constants {
+   public const CONSTANT_MESSAGES = [
+        "ONE_VALUE_MUST_CHANGE" => "At least one value must change"
+    ];
+}

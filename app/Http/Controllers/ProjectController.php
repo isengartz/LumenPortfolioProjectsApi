@@ -6,7 +6,7 @@ use App\Project;
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Utility\Constants;
+use App\Utility\Constants;
 
 /**
  * Class ProjectController
@@ -84,7 +84,7 @@ class ProjectController extends Controller
 
         // If there are no changes on the record don't update
         if ($project->isClean()) {
-            return $this->errorResponse(Constants["ONE_VALUE_MUST_CHANGE"], Response::HTTP_UNPROCESSABLE_ENTITY);
+            return $this->errorResponse(Constants::CONSTANT_MESSAGES["ONE_VALUE_MUST_CHANGE"], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
         $project->save();
 
