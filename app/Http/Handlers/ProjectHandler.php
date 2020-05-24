@@ -30,8 +30,8 @@ class ProjectHandler extends BaseHandler
         $filters = $this->normalizeFilters($data, Project::$filters, Constants::AVAILABLE_FILTERS);
 
         $projects = DB::table('projects');
-        foreach ($filters as $value=>$filter){
-            $projects->whereRaw($filter,[$value]);
+        foreach ($filters as $filter){
+            $projects->whereRaw($filter["field"] .' '.$filter["query"],[$filter["value"]]);
         }
 
         return $projects->get();

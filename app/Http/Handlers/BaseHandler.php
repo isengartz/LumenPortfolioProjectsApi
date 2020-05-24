@@ -28,10 +28,13 @@ abstract class BaseHandler
                 $opValue = explode(':', $value);
                 // check if the filter is valid
                 if (array_key_exists($opValue[0], $availableFilters)) {
-                    // we will have an array containing the value as a key and the sql for filter as value
-                    // ex : ["10"] => " id >= ? "
-                    // We could populate the whole sql query here and return a string but I find this easier to debug
-                    $normalized[$opValue[1]] = $field . ' ' . $availableFilters[$opValue[0]];
+                    // we will have an array containing the field name, the query and the value
+                    // ex : ["field" => "id", "query" => ">=" , "value" => 1
+                    $normalized[]=[
+                        "field" => $field,
+                        "query" => $availableFilters[$opValue[0]],
+                        "value" => $opValue[1]
+                    ];
                 }
             }
         }
