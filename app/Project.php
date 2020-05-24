@@ -18,5 +18,13 @@ class Project extends Model
         'title', 'description', 'image',
     ];
 
+    /**
+     * The filters that someone can use for the Project Entity
+     * @var array
+     */
+    public static $filters = [
+        'id', 'title'
+    ];
+
 
 }

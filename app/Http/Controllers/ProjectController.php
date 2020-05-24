@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Handlers\ProjectHandler;
 use App\Project;
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
@@ -17,25 +18,33 @@ class ProjectController extends Controller
 
     use ApiResponser;
 
+
+    private $projectHandler;
+
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @param ProjectHandler $projectHandler
      */
-    public function __construct()
+    public function __construct(ProjectHandler $projectHandler)
     {
-        //
+        $this->projectHandler=$projectHandler;
     }
 
     /**
      * Returns all projects
+     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
+    public function index(Request $request)
     {
-        $project = Project::all();
-        return $this->successResponse($project);
+        // Return filtered projects
+        $projects = $this->projectHandler->filterProjects($request->all());
+
+        return $this->successResponse($projects);
     }
+
+
 
     /**
      * Store a project to database
