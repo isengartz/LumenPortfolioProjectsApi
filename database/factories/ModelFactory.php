@@ -4,6 +4,7 @@
 
 
 use App\Project;
+use App\ProjectTag;
 use Faker\Generator as Faker;
 
 /*
@@ -16,11 +17,20 @@ use Faker\Generator as Faker;
 | model instances for testing / seeding your application's database.
 |
 */
-
+$factory->define(ProjectTag::class, function (Faker $faker) {
+    return [
+        'title' => $faker->sentence(1,true),
+    ];
+});
 $factory->define(Project::class, function (Faker $faker) {
     return [
         'title' => $faker->sentence(3,true),
         'description' => $faker->sentence(6,true),
-        'image' => 'https://source.unsplash.com/random/800x600'
+        'image' => 'https://source.unsplash.com/random/800x600',
+        'device_image' => 'https://source.unsplash.com/random/800x600',
     ];
+});
+
+$factory->afterCreating(Project::class, function ($row, $faker) {
+    $row->tags()->attach(rand(1,3));
 });

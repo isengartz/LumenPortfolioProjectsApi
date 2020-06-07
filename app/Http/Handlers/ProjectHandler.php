@@ -29,12 +29,13 @@ class ProjectHandler extends BaseHandler
     {
         $filters = $this->normalizeFilters($data, Project::$filters, Constants::AVAILABLE_FILTERS);
 
-        $projects = DB::table('projects');
+//        $projects = DB::table('projects');
+        $projects = Project::query();
         foreach ($filters as $filter){
             $projects->whereRaw($filter["field"] .' '.$filter["query"],[$filter["value"]]);
         }
 
-        return $projects->get();
+        return $projects->with('tags')->get();
 
     }
 }

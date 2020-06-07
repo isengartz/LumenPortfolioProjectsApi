@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // Create random records
+        factory(\App\ProjectTag::class,4)->create();
         factory(\App\Project::class,4)->create();
         // $this->call('UsersTableSeeder');
     }

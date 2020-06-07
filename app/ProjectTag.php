@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Project extends Model
+class ProjectTag extends Model
 {
 
 
@@ -15,23 +15,25 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'description', 'image',
+        'title'
     ];
     /**
-     * Dont return these when getting data from DB
+     * Dont show theese fields when returning data from DB
      * @var array
      */
     protected $hidden = ['pivot'];
     /**
-     * The filters that someone can use for the Project Entity
+     * The filters that someone can use for the ProjectTag Entity
      * @var array
      */
     public static $filters = [
         'id', 'title'
     ];
 
-    public function tags()
+    public function projects()
     {
-        return $this->belongsToMany('App\ProjectTag');
+        return $this->belongsToMany('App\Projects');
     }
+
+
 }

@@ -70,7 +70,7 @@ class ProjectController extends Controller
      */
     public function show($project)
     {
-        $project = Project::findOrFail($project);
+        $project = Project::with('tags')->findOrFail($project);
         return $this->successResponse($project);
     }
 
@@ -80,6 +80,7 @@ class ProjectController extends Controller
      * @param $project
      * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Validation\ValidationException
+     * @todo: Update the Project Tag. Too bored to do now
      */
     public function update(Request $request, $project)
     {
