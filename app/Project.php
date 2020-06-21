@@ -15,7 +15,7 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'description', 'image',
+        'title', 'description', 'image', 'slug',
     ];
     /**
      * Dont return these when getting data from DB
@@ -27,7 +27,7 @@ class Project extends Model
      * @var array
      */
     public static $filters = [
-        'id', 'title'
+        'id', 'title', 'slug'
     ];
 
     public function tags()

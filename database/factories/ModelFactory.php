@@ -28,6 +28,7 @@ $factory->define(Project::class, function (Faker $faker) {
         'description' => $faker->sentence(6,true),
         'image' => 'https://source.unsplash.com/random/800x600',
         'device_image' => 'https://source.unsplash.com/random/800x600',
+        'slug' => $faker->word()
     ];
 });
 
