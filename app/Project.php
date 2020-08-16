@@ -15,7 +15,7 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'description', 'image', 'slug','link',
+        'title', 'description', 'image', 'slug', 'link', 'sorting'
     ];
     /**
      * Dont return these when getting data from DB
@@ -28,6 +28,14 @@ class Project extends Model
      */
     public static $filters = [
         'id', 'title', 'slug'
+    ];
+
+    /**
+     * The columns that someone can sort
+     * @var array
+     */
+    public static $sortable = [
+        'id', 'sorting'
     ];
 
     public function tags()
