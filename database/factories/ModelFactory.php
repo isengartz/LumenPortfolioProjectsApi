@@ -39,6 +39,8 @@ $factory->define(Project::class, function (Faker $faker) use ($autoIncrement) {
     $autoIncrement->next();
     return [
         'title' => $faker->sentence(3,true),
+        'subtitle' => $faker->sentence(6,true),
+        'overview' => $faker->sentence(6,true),
         'description' => $faker->sentence(6,true),
         'image' => 'https://source.unsplash.com/random/800x600',
         'device_image' => 'https://source.unsplash.com/random/800x600',

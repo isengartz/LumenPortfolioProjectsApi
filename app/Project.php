@@ -15,7 +15,7 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'description', 'image', 'slug', 'link', 'sorting'
+        'title', 'subtitle', 'overview', 'description', 'image', 'slug', 'link', 'sorting'
     ];
     /**
      * Dont return these when getting data from DB
