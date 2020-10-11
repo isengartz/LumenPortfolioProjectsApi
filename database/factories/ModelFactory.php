@@ -46,7 +46,8 @@ $factory->define(Project::class, function (Faker $faker) use ($autoIncrement) {
         'device_image' => 'https://source.unsplash.com/random/800x600',
         'slug' => $faker->word(),
         'link' => $faker->url(),
-        'sorting' => $autoIncrement->current()
+        'sorting' => $autoIncrement->current(),
+        'develop_dates' => '2019-2020'
     ];
 });
 
