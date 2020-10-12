@@ -54,7 +54,7 @@ class ProjectHandler extends BaseHandler
             $projects->limit($limit["limit"]);
         }
 
-        return $projects->with('tags')->get();
+        return $projects->with(['tags','repositories'])->get();
 
     }
 }

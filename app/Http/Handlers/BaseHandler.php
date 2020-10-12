@@ -66,7 +66,7 @@ abstract class BaseHandler
         // Check if the sortType is defined by the user
         // If not add the default sortType ( ASC )
         if (count($sortData) < 2) {
-            $sortType = "ASC";
+            $sortType = self::DEFAULT_SORTING_TYPE;
             $sortField = $data["sort"];
         } else {
             list($sortField, $sortType) = $sortData;

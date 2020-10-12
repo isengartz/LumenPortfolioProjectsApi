@@ -70,7 +70,7 @@ class ProjectController extends Controller
      */
     public function show($project) : JsonResponse
     {
-        $project = Project::with('tags')->findOrFail($project);
+        $project = Project::with(['repositories', 'tags'])->findOrFail($project);
         return $this->successResponse($project);
     }
 

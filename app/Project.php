@@ -42,4 +42,8 @@ class Project extends Model
     {
         return $this->belongsToMany('App\ProjectTag');
     }
+    public function repositories()
+    {
+        return $this->hasMany('App\ProjectRepository');
+    }
 }
